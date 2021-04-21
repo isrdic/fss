@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>backend</artifactId>
+        <groupId>rs.srdic.fss</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>model</artifactId>
+
+    <name>Model</name>
+    <description>Entites</description>
+
+    <properties>
+<!--        <maven.compiler.source>11</maven.compiler.source>-->
+<!--        <maven.compiler.target>11</maven.compiler.target>-->
+        <org.hibernate.validator>6.0.17.Final</org.hibernate.validator>
+        <liquibase.version>4.3.3</liquibase.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <profiles>
+
+        <profile>
+            <id>liquibase-diff</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-maven-plugin</artifactId>
+                        <version>${liquibase.version}</version>
+                        <configuration>
+                            <url>jdbc:mysql://localhost:3306/fsl</url>
+                            <driver>com.mysql.cj.jdbc.Driver</driver>
+                            <username>admin</username>
+                            <password>password</password>
+                            <outputFileEncoding>UTF-8</outputFileEncoding>
+                            <changeLogFile>src/main/resources/changelog.xml</changeLogFile>
+                            <logging>debug</logging>
+                            <diffChangeLogFile>src/main/resources/diffchangelog.xml</diffChangeLogFile>
+                            <referenceUrl>hibernate:spring:rs.srdic.fss.model?dialect=org.hibernate.dialect.MySQLDialect</referenceUrl>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.liquibase.ext</groupId>
+                                <artifactId>liquibase-hibernate5</artifactId>
+                                <version>4.3.2</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.springframework.boot</groupId>
+                                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                                <version>2.4.5</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.hibernate.validator</groupId>
+                                <artifactId>hibernate-validator</artifactId>
+                                <version>${org.hibernate.validator}</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

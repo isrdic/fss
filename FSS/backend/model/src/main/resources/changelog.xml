@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="isrdic (generated)" id="1619021500535-1">
+        <createTable tableName="IGRAC">
+            <column autoIncrement="true" name="igracID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="IGRACPK"/>
+            </column>
+            <column name="datumRodjenja" type="datetime"/>
+            <column name="ime" type="VARCHAR(255)"/>
+            <column name="jmbg" type="VARCHAR(255)"/>
+            <column name="prezime" type="VARCHAR(255)"/>
+            <column name="mesto_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="isrdic (generated)" id="1619021500535-2">
+        <createTable tableName="KLUB">
+            <column autoIncrement="true" name="klubID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="KLUBPK"/>
+            </column>
+            <column name="naziv" type="VARCHAR(255)"/>
+            <column name="mesto_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="isrdic (generated)" id="1619021500535-3">
+        <createTable tableName="MESTO">
+            <column autoIncrement="true" name="mestoID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="MESTOPK"/>
+            </column>
+            <column name="naziv" type="VARCHAR(255)"/>
+            <column name="ptt" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="isrdic (generated)" id="1619021500535-4">
+        <createTable tableName="TAKMICENJE">
+            <column autoIncrement="true" name="takmicenjeID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="TAKMICENJEPK"/>
+            </column>
+            <column name="nazivTakmicenja" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="isrdic (generated)" id="1619021500535-5">
+        <createTable tableName="UTAKMICA">
+            <column autoIncrement="true" name="utakmicaID" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="UTAKMICAPK"/>
+            </column>
+            <column name="datumOdigravanja" type="datetime"/>
+            <column name="domacin_id" type="INT"/>
+            <column name="gost_id" type="INT"/>
+            <column name="takmicenje_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="isrdic (generated)" id="1619021500535-6">
+        <addForeignKeyConstraint baseColumnNames="takmicenje_id" baseTableName="UTAKMICA" constraintName="FKcan470s55j43brvmo1ctxyg0d" deferrable="false" initiallyDeferred="false" referencedColumnNames="takmicenjeID" referencedTableName="TAKMICENJE" validate="true"/>
+    </changeSet>
+    <changeSet author="isrdic (generated)" id="1619021500535-7">
+        <addForeignKeyConstraint baseColumnNames="gost_id" baseTableName="UTAKMICA" constraintName="FKevfw88jqc92jfna5s7um01xf7" deferrable="false" initiallyDeferred="false" referencedColumnNames="klubID" referencedTableName="KLUB" validate="true"/>
+    </changeSet>
+    <changeSet author="isrdic (generated)" id="1619021500535-8">
+        <addForeignKeyConstraint baseColumnNames="mesto_id" baseTableName="IGRAC" constraintName="FKoh03ldmc3o7hjdcb1t61v9p4w" deferrable="false" initiallyDeferred="false" referencedColumnNames="mestoID" referencedTableName="MESTO" validate="true"/>
+    </changeSet>
+    <changeSet author="isrdic (generated)" id="1619021500535-9">
+        <addForeignKeyConstraint baseColumnNames="domacin_id" baseTableName="UTAKMICA" constraintName="FKp7yjobx22jy85x72w1kwhcyst" deferrable="false" initiallyDeferred="false" referencedColumnNames="klubID" referencedTableName="KLUB" validate="true"/>
+    </changeSet>
+    <changeSet author="isrdic (generated)" id="1619021500535-10">
+        <addForeignKeyConstraint baseColumnNames="mesto_id" baseTableName="KLUB" constraintName="FKrcbninkupre6grndsjx6r0fh" deferrable="false" initiallyDeferred="false" referencedColumnNames="mestoID" referencedTableName="MESTO" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
