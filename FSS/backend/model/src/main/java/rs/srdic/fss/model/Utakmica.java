@@ -10,7 +10,7 @@ import java.util.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "UTAKMICA")
+@Table(name = "utakmica")
 @Entity
 public class Utakmica {
 
@@ -18,6 +18,7 @@ public class Utakmica {
     @GeneratedValue
     private Integer utakmicaID;
 
+    @Column(name = "datum_odigravanja")
     private Date datumOdigravanja;
 
     @ManyToOne(targetEntity = Klub.class, fetch = FetchType.LAZY)

@@ -11,7 +11,7 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "NASTUP")
+@Table(name = "nastup")
 @Entity
 public class Nastup {
 

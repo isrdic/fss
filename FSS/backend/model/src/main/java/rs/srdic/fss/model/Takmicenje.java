@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "TAKMICENJE")
+@Table(name = "takmicenje")
 @Entity
 public class Takmicenje {
 
@@ -18,6 +18,7 @@ public class Takmicenje {
     @GeneratedValue
     private Integer takmicenjeID;
 
+    @Column(name = "naziv_takmicenja")
     private String nazivTakmicenja;
 
     @OneToMany(targetEntity = Utakmica.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "takmicenje")

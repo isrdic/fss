@@ -3,10 +3,6 @@ package rs.srdic.fss.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-import org.hibernate.annotations.NaturalId;
-import org.hibernate.annotations.NaturalIdCache;
 import rs.srdic.fss.model.enumeration.Pozicija;
 
 import javax.persistence.*;
@@ -18,23 +14,19 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "IGRAC")
+@Table(name = "igrac")
 @Entity
-@NaturalIdCache
-@Cache(
-        usage = CacheConcurrencyStrategy.READ_WRITE
-)
 public class Igrac {
 
     @Id
     @GeneratedValue
     private Integer igracID;
 
-    @NaturalId
     private String jmbg;
 
     private String ime;
     private String prezime;
+
     private Date datumRodjenja;
 
     @Enumerated(EnumType.STRING)
