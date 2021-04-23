@@ -1,12 +1,9 @@
 package rs.srdic.fss.engine.controller;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import rs.srdic.fss.engine.service.UtakmicaService;
 import rs.srdic.fss.model.Utakmica;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @RestController

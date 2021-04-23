@@ -7,4 +7,5 @@ import rs.srdic.fss.model.NastupID;
 
 @Repository
 public interface NastupRepository extends JpaRepository<Nastup, NastupID> {
+
 }

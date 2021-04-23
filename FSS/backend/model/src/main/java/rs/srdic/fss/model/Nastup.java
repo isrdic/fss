@@ -35,10 +35,11 @@ public class Nastup {
 
     private Double ocenaIgraca;
 
-    public Nastup(Igrac igrac, Utakmica utakmica) {
+    public Nastup(Igrac igrac, Utakmica utakmica, Double ocenaIgraca) {
         this.igrac = igrac;
         this.utakmica = utakmica;
         this.nastupID = new NastupID(igrac.getIgracID(), utakmica.getUtakmicaID());
+        this.ocenaIgraca = ocenaIgraca;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package rs.srdic.fss.engine.controller;
 
 import org.springframework.web.bind.annotation.*;
+import rs.srdic.fss.engine.dto.IgracDTO;
 import rs.srdic.fss.engine.service.IgracService;
 import rs.srdic.fss.model.Igrac;
 
@@ -17,9 +18,18 @@ public class IgracController {
     }
 
     @PostMapping(value = "/save")
-    public Igrac saveIgrac(@RequestBody Igrac igrac) {
-        return igracService.saveOrUpdate(igrac);
+    public IgracDTO saveIgrac(@RequestBody IgracDTO igracDTO) {
+        return igracService.saveOrUpdate(igracDTO);
     }
+
+//    @PostMapping("recipe/{id}/image")
+//    public String handleImagePost(@PathVariable String id, @RequestParam("imagefile") MultipartFile file){
+//
+//        imageService.saveImageFile(Long.valueOf(id), file);
+//
+//        return "redirect:/recipe/" + id + "/show";
+//    }
+
 
     @GetMapping(value = "/get/{igracID}")
     public Igrac getIgrac(@PathVariable("igracID") Integer igracID) {
@@ -27,8 +37,8 @@ public class IgracController {
     }
 
     @PutMapping(value = "/update")
-    public Igrac updateIgrac(@RequestBody Igrac igrac) {
-        return igracService.saveOrUpdate(igrac);
+    public IgracDTO updateIgrac(@RequestBody IgracDTO igracDTO) {
+        return igracService.saveOrUpdate(igracDTO);
     }
 
     @DeleteMapping("/delete/{igracID}")

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -24,10 +25,10 @@ public class Mesto {
     private String naziv;
 
     @OneToMany(targetEntity = Klub.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "mesto")
-    private List<Klub> klubovi;
+    private List<Klub> klubovi = new ArrayList<>();
 
     @OneToMany(targetEntity = Igrac.class, cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "mesto")
-    private List<Igrac> igraci;
+    private List<Igrac> igraci = new ArrayList<>();
 
     public void addKlub(Klub klub) {
         klubovi.add(klub);

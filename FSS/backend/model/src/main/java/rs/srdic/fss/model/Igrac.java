@@ -1,5 +1,6 @@
 package rs.srdic.fss.model;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,11 +12,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+@Entity
+@Table(name = "igrac")
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "igrac")
-@Entity
 public class Igrac {
 
     @Id
@@ -29,6 +30,9 @@ public class Igrac {
 
     private Date datumRodjenja;
 
+//    @Lob
+//    private Byte[] slika;
+
     @Enumerated(EnumType.STRING)
     private Pozicija pozicija;
 
@@ -37,6 +41,7 @@ public class Igrac {
     private Mesto mesto;
 
     @OneToMany(
+            fetch = FetchType.EAGER,
             mappedBy = "igrac",
             cascade = CascadeType.ALL,
             orphanRemoval = true

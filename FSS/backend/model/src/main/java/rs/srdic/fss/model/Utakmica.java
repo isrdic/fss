@@ -34,14 +34,15 @@ public class Utakmica {
     private Takmicenje takmicenje;
 
     @OneToMany(
+            fetch = FetchType.EAGER,
             mappedBy = "utakmica",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
     private List<Nastup> nastupi = new ArrayList<>();
 
-    public void dodajIgraca(Igrac igrac) {
-        Nastup nastup = new Nastup(igrac, this);
+    public void dodajIgraca(Igrac igrac, Double ocena) {
+        Nastup nastup = new Nastup(igrac, this, ocena);
         nastupi.add(nastup);
         igrac.getNastupi().add(nastup);
     }
