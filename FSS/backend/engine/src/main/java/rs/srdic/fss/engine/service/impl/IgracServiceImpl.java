@@ -27,32 +27,19 @@ public class IgracServiceImpl implements IgracService {
     }
 
     @Override
-    public IgracDTO saveOrUpdate(IgracDTO igracDTO) {
-        try {
-//            Igrac igrac = igracRepository.findById(igracDTO.getIgracID()).get();
+    public IgracDTO save(IgracDTO igracDTO) throws IOException {
+        Igrac igrac = IgracMapper.INSTANCE.toIgrac(igracDTO);
 
-            MultipartFile slika = igracDTO.getSlika();
-            Byte[] byteObjects = new Byte[slika.getBytes().length];
-            int i = 0;
-            for (byte b : slika.getBytes()){
-                byteObjects[i++] = b;
-            }
+        igrac = igracRepository.save(igrac);
+        IgracDTO igracDTO1 = IgracMapper.INSTANCE.toIgracDTO(igrac);
+//        return IgracMapper.INSTANCE.toIgracDTO(igracRepository.save(igrac));
+        return igracDTO1;
+    }
 
-            Igrac igrac = IgracMapper.INSTANCE.toIgrac(igracDTO);
-//            igrac.setSlika(byteObjects);
-
-            igracDTO = IgracMapper.INSTANCE.toIgracDTO(igracRepository.save(igrac));
-
-            return igracDTO;
-        } catch (IOException e) {
-            //todo handle better
-            LOGGER.error("Error occurred", e);
-
-            e.printStackTrace();
-            return null;
-        }
-
-
+    @Override
+    public IgracDTO update(IgracDTO igracDTO) {
+        Igrac igrac = IgracMapper.INSTANCE.toIgrac(igracDTO);
+        return IgracMapper.INSTANCE.toIgracDTO(igrac);
     }
 
     @Override

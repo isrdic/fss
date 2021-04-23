@@ -20,7 +20,7 @@ public class IgracDTO {
     private String ime;
     private String prezime;
     private Date datumRodjenja;
-    private MultipartFile slika;
+    private byte[] slika;
     private Pozicija pozicija;
 
 }

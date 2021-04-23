@@ -14,7 +14,7 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+//@SpringBootTest
 public class IgracRepositoryTest {
 
     @Autowired
@@ -38,23 +38,23 @@ public class IgracRepositoryTest {
     @Autowired
     private TakmicenjeRepository takmicenjeRepository;
 
-    @Test
-    public void saveIgracSaMestomTest() {
-        Mesto mesto = new Mesto();
-        mesto.setNaziv("Beograd");
-        mesto.setPtt(11000);
-        mesto = mestoRepository.save(mesto);
-        Igrac igrac = new Igrac();
-        igrac.setIme("Ivan"); //Igrac.builder().ime("Ivan").prezime("Srdic").datumRodjenja(new Date()).build();
-        mesto.addIgrac(igrac);
-        igrac = igracRepository.save(igrac);
-        assertEquals(1, igracRepository.findAll().size());
-        igracRepository.deleteById(igrac.getIgracID());
-        assertEquals(0, igracRepository.findAll().size());
-    }
+//    @Test
+//    public void saveIgracSaMestomTest() {
+//        Mesto mesto = new Mesto();
+//        mesto.setNaziv("Beograd");
+//        mesto.setPtt(11000);
+//        mesto = mestoRepository.save(mesto);
+//        Igrac igrac = new Igrac();
+//        igrac.setIme("Ivan"); //Igrac.builder().ime("Ivan").prezime("Srdic").datumRodjenja(new Date()).build();
+//        mesto.addIgrac(igrac);
+//        igrac = igracRepository.save(igrac);
+//        assertEquals(1, igracRepository.findAll().size());
+//        igracRepository.deleteById(igrac.getIgracID());
+//        assertEquals(0, igracRepository.findAll().size());
+//    }
 
-    @Test
-    public void saveNastupTest() {
+//    @Test
+//    public void saveNastupTest() {
 
 //        Mesto mestoDB = hibernateTransactionUtil.doInTransaction(entityManager -> {
 //            Mesto mesto = new Mesto();
@@ -65,43 +65,43 @@ public class IgracRepositoryTest {
 
 
 
-        Mesto mestoDB = hibernateTransactionUtil.doInTransaction(entityManager -> {
-            Mesto mesto = new Mesto();
-            mesto.setNaziv("Beograd");
-            mesto.setPtt(11000);
-            return mestoRepository.save(mesto);
-        });
+//        Mesto mestoDB = hibernateTransactionUtil.doInTransaction(entityManager -> {
+//            Mesto mesto = new Mesto();
+//            mesto.setNaziv("Beograd");
+//            mesto.setPtt(11000);
+//            return mestoRepository.save(mesto);
+//        });
+//
+//        Igrac igracDB = hibernateTransactionUtil.doInTransaction(entityManager -> {
+//            Igrac igrac = new Igrac();
+//            igrac.setIme("Ivan");
+//            return igracRepository.save(igrac);
+//        });
+//
+//        Mesto mestoDB2 = hibernateTransactionUtil.doInTransaction(entityManager -> {
+//            mestoDB.addIgrac(igracDB);
+//            return mestoRepository.save(mestoDB);
+//        });
+//
+//        hibernateTransactionUtil.doInTransaction(entityManager -> {
+//            Utakmica utakmica = new Utakmica();
+//            utakmica.setDatumOdigravanja(new Date());
+//
+//            utakmica.dodajIgraca(igracRepository.findById(igracDB.getIgracID()).get(), 4.11);
+//            utakmica = utakmicaRepository.save(utakmica);
+//
+//            utakmica = utakmicaRepository.findById(utakmica.getUtakmicaID()).get();
+//
+//            assertEquals(1, nastupRepository.findAll().size());
+//        });
+//
+//    }
 
-        Igrac igracDB = hibernateTransactionUtil.doInTransaction(entityManager -> {
-            Igrac igrac = new Igrac();
-            igrac.setIme("Ivan");
-            return igracRepository.save(igrac);
-        });
-
-        Mesto mestoDB2 = hibernateTransactionUtil.doInTransaction(entityManager -> {
-            mestoDB.addIgrac(igracDB);
-            return mestoRepository.save(mestoDB);
-        });
-
-        hibernateTransactionUtil.doInTransaction(entityManager -> {
-            Utakmica utakmica = new Utakmica();
-            utakmica.setDatumOdigravanja(new Date());
-
-            utakmica.dodajIgraca(igracRepository.findById(igracDB.getIgracID()).get(), 4.11);
-            utakmica = utakmicaRepository.save(utakmica);
-
-            utakmica = utakmicaRepository.findById(utakmica.getUtakmicaID()).get();
-
-            assertEquals(1, nastupRepository.findAll().size());
-        });
-
-    }
-
-    @AfterEach
-    public void tearDown() {
-        igracRepository.deleteAll();
-        utakmicaRepository.deleteAll();
-        nastupRepository.deleteAll();
-    }
+//    @AfterEach
+//    public void tearDown() {
+//        igracRepository.deleteAll();
+//        utakmicaRepository.deleteAll();
+//        nastupRepository.deleteAll();
+//    }
 
 }

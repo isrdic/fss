@@ -9,8 +9,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-//@EnableJpaRepositories("rs.srdic.fss.engine.repository")
-//@ComponentScan(basePackages = { "rs.srdic.fss.engine" })
+@EnableJpaRepositories("rs.srdic.fss.engine.repository")
+@ComponentScan(basePackages = { "rs.srdic.fss.engine" })
 //@EnableAutoConfiguration
 @EntityScan("rs.srdic.fss.model")
 //@PropertySource("classpath:application.properties")

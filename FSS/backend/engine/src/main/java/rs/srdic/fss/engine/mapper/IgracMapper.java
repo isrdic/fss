@@ -15,14 +15,10 @@ public interface IgracMapper {
     IgracMapper INSTANCE = Mappers.getMapper(IgracMapper.class);
 
     @Mappings({
-            @Mapping(target = "slika", ignore = true),
             @Mapping(target = "mesto", ignore = true)
     })
     Igrac toIgrac(IgracDTO igracDTO);
 
-//    @Mappings({
-//            @Mapping(target = "slika", ignore = true)
-//    })
     IgracDTO toIgracDTO(Igrac igrac);
 
     List<Igrac> toIgracList(List<IgracDTO> igracDTOList);

@@ -28,10 +28,11 @@ public class Igrac {
     private String ime;
     private String prezime;
 
+    @Column(name = "datum_rodjenja")
     private Date datumRodjenja;
 
-//    @Lob
-//    private Byte[] slika;
+    @Lob
+    private byte[] slika;
 
     @Enumerated(EnumType.STRING)
     private Pozicija pozicija;
