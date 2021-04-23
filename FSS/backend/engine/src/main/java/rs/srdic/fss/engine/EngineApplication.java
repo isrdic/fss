@@ -11,9 +11,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories("rs.srdic.fss.engine.repository")
 @ComponentScan(basePackages = { "rs.srdic.fss.engine" })
-//@EnableAutoConfiguration
 @EntityScan("rs.srdic.fss.model")
-//@PropertySource("classpath:application.properties")
+@PropertySource(value = {"classpath:error_messages.properties"})
 public class EngineApplication {
 
     public static void main(String[] args) {

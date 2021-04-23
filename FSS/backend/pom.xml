@@ -34,21 +34,25 @@
         <lombok.version>1.18.20</lombok.version>
         <mysql.version>8.0.23</mysql.version>
         <org.springframework.boot.version>2.4.5</org.springframework.boot.version>
-
-<!--        <bootstrap.version>4.0.0-2</bootstrap.version>-->
-<!--        <webjars-locator.version>0.30</webjars-locator.version>-->
-
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <dependencyManagement>
         <dependencies>
-
-<!--            <dependency>-->
-<!--                <groupId>org.mapstruct</groupId>-->
-<!--                <artifactId>mapstruct</artifactId>-->
-<!--                <version>${mapstruct.version}</version>-->
-<!--            </dependency>-->
 
             <dependency>
                 <groupId>org.mapstruct</groupId>
@@ -61,24 +65,6 @@
                 <version>${org.mapstruct.version}</version>
                 <scope>provided</scope>
             </dependency>
-
-<!--            <dependency>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-<!--                <version>${org.springframework.boot.version}</version>-->
-<!--            </dependency>-->
-
-<!--            <dependency>-->
-<!--                <groupId>org.webjars</groupId>-->
-<!--                <artifactId>bootstrap</artifactId>-->
-<!--                <version>${bootstrap.version}</version>-->
-<!--            </dependency>-->
-
-<!--            <dependency>-->
-<!--                <groupId>org.webjars</groupId>-->
-<!--                <artifactId>webjars-locator</artifactId>-->
-<!--                <version>${webjars-locator.version}</version>-->
-<!--            </dependency>-->
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -110,6 +96,8 @@
                 <scope>test</scope>
                 <version>${org.springframework.boot.version}</version>
             </dependency>
+
+
 
         </dependencies>
     </dependencyManagement>

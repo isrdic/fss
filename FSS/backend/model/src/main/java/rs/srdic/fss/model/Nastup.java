@@ -1,6 +1,5 @@
 package rs.srdic.fss.model;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,13 +13,6 @@ import java.util.Objects;
 @Table(name = "nastup")
 @Entity
 public class Nastup {
-
-//    @Setter(AccessLevel.NONE)
-//    @Getter(AccessLevel.NONE)
-//    @Column(name = "ID", nullable = false)
-//    @Id
-//    @GeneratedValue
-//    private Integer nastupID;
 
     @EmbeddedId
     private NastupID nastupID;

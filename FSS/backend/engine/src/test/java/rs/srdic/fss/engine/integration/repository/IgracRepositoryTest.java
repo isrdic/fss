@@ -1,5 +1,6 @@
 package rs.srdic.fss.engine.integration.repository;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,8 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//@SpringBootTest
+@Ignore
+@SpringBootTest
 public class IgracRepositoryTest {
 
     @Autowired
@@ -55,17 +57,17 @@ public class IgracRepositoryTest {
 
 //    @Test
 //    public void saveNastupTest() {
-
+//
 //        Mesto mestoDB = hibernateTransactionUtil.doInTransaction(entityManager -> {
 //            Mesto mesto = new Mesto();
 //            mesto.setNaziv("Beograd");
 //            mesto.setPtt(11000);
 //            return mestoRepository.save(mesto);
 //        });
-
-
-
-//        Mesto mestoDB = hibernateTransactionUtil.doInTransaction(entityManager -> {
+//
+//
+//
+//        hibernateTransactionUtil.doInTransaction(entityManager -> {
 //            Mesto mesto = new Mesto();
 //            mesto.setNaziv("Beograd");
 //            mesto.setPtt(11000);

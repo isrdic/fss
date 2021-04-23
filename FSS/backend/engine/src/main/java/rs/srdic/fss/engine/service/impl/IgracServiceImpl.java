@@ -29,11 +29,8 @@ public class IgracServiceImpl implements IgracService {
     @Override
     public IgracDTO save(IgracDTO igracDTO) throws IOException {
         Igrac igrac = IgracMapper.INSTANCE.toIgrac(igracDTO);
-
         igrac = igracRepository.save(igrac);
-        IgracDTO igracDTO1 = IgracMapper.INSTANCE.toIgracDTO(igrac);
-//        return IgracMapper.INSTANCE.toIgracDTO(igracRepository.save(igrac));
-        return igracDTO1;
+        return IgracMapper.INSTANCE.toIgracDTO(igrac);
     }
 
     @Override

@@ -3,6 +3,7 @@ package rs.srdic.fss.engine.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import rs.srdic.fss.engine.dto.IgracDTO;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
+@PreAuthorize("hasAnyAuthority('ADMIN')")
 @RequestMapping(value = "/igrac")
 public class IgracController {
 
@@ -38,15 +40,6 @@ public class IgracController {
         }
         return null;
     }
-
-//    @PostMapping("recipe/{id}/image")
-//    public String handleImagePost(@PathVariable String id, @RequestParam("imagefile") MultipartFile file){
-//
-//        imageService.saveImageFile(Long.valueOf(id), file);
-//
-//        return "redirect:/recipe/" + id + "/show";
-//    }
-
 
     @GetMapping(value = "/get/{igracID}")
     public Igrac getIgrac(@PathVariable("igracID") Integer igracID) {

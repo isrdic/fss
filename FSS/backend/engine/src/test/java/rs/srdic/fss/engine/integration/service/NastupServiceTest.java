@@ -1,5 +1,6 @@
 package rs.srdic.fss.engine.integration.service;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,36 +18,37 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//@SpringBootTest
+@Ignore
+@SpringBootTest
 public class NastupServiceTest {
 
-//    @Autowired
-//    private HibernateTransactionUtil hibernateTransactionUtil;
-//
-//    @Autowired
-//    private NastupService nastupService;
-//
-//    @Autowired
-//    private MestoRepository mestoRepository;
-//
-//    @Autowired
-//    private IgracRepository igracRepository;
-//
-//    @Autowired
-//    private UtakmicaRepository utakmicaRepository;
-//
-//    Mesto mesto;
-//    Mesto mestoDB;
-//    Igrac igrac;
-//    Utakmica utakmica;
-//
+    @Autowired
+    private HibernateTransactionUtil hibernateTransactionUtil;
+
+    @Autowired
+    private NastupService nastupService;
+
+    @Autowired
+    private MestoRepository mestoRepository;
+
+    @Autowired
+    private IgracRepository igracRepository;
+
+    @Autowired
+    private UtakmicaRepository utakmicaRepository;
+
+    Mesto mesto;
+    Mesto mestoDB;
+    Igrac igrac;
+    Utakmica utakmica;
+
 //    @BeforeEach
 //    public void setUp() {
 //
 //        mesto = hibernateTransactionUtil.doInTransaction(entityManager -> {
 //            Mesto mesto = new Mesto();
-//            mesto.setNaziv("Kikinda");
-//            mesto.setPtt(23300);
+//            mesto.setNaziv("Novi Sad");
+//            mesto.setPtt(21000);
 //            return mestoRepository.save(mesto);
 //        });
 //

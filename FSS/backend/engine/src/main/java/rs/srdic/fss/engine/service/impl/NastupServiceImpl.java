@@ -49,7 +49,7 @@ public class NastupServiceImpl implements NastupService {
     }
 
     @Override
-    public List<Nastup> findAll() {
-        return nastupRepository.findAll();
+    public List<Utakmica> findAll(String jmbg) {
+        return nastupRepository.findNastupiZaIgraca(jmbg);
     }
 }

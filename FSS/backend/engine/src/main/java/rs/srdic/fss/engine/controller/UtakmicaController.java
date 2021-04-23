@@ -1,5 +1,6 @@
 package rs.srdic.fss.engine.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import rs.srdic.fss.engine.service.UtakmicaService;
 import rs.srdic.fss.model.Utakmica;
@@ -7,6 +8,7 @@ import rs.srdic.fss.model.Utakmica;
 import java.util.List;
 
 @RestController
+@PreAuthorize("hasAnyAuthority('ADMIN')")
 @RequestMapping(value = "/utakmica")
 public class UtakmicaController {
 

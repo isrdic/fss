@@ -1,0 +1,2 @@
+insert into user (username, password, role) VALUES ('admin', 'admin', (select role_id from role WHERE roleName = 'ADMIN');
+insert into user (username, password, role) VALUES ('igrac', 'igrac', (select role_id from role WHERE roleName = 'IGRAC');
